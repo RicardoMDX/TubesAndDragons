@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterCreation : MonoBehaviour
 {
+    public InputField nameField;
     public Toggle raceButton1, raceButton2, raceButton3, raceButton4;
     public Toggle classButton1, classButton2, classButton3, classButton4;
+    public PlayerScript playerScript;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -22,6 +25,8 @@ public class CharacterCreation : MonoBehaviour
     public void Done()
     {
         int i_race=0, i_class=0;
+        string s_name;
+        s_name = nameField.text;
         if(raceButton1.isOn)
         {
             i_race = 1;
@@ -54,13 +59,17 @@ public class CharacterCreation : MonoBehaviour
         {
             i_class = 4;
         }
-        if(i_race==0 || i_class==0)
+        if(s_name.Length<3 || i_race==0 || i_class==0)
         {
             Debug.Log("Error");
         }
         else
         {
-            Debug.Log("Race= " + i_race + " and Class= " + i_class);
+            playerScript.s_Name = s_name;
+            playerScript.i_Race = i_race;
+            playerScript.i_Class = i_class;
+            Debug.Log("Name= "+s_name+" Race= " + i_race + " and Class= " + i_class);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

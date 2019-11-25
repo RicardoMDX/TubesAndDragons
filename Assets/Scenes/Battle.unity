@@ -324,6 +324,7 @@ Transform:
   - {fileID: 1394477544}
   - {fileID: 1868014351}
   - {fileID: 1518254260}
+  - {fileID: 1978174025}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -340,11 +341,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txt_Header: {fileID: 1774549318}
-  go_Spawn1: {fileID: 579746411}
-  go_Spawn2: {fileID: 699469684}
+  go_Spawn1: {fileID: 1518254259}
+  go_Spawn2: {fileID: 1868014350}
   go_Spawn3: {fileID: 1394477543}
-  go_Spawn4: {fileID: 1868014350}
-  go_Spawn5: {fileID: 1518254259}
+  go_Spawn4: {fileID: 699469684}
+  go_Spawn5: {fileID: 579746411}
   go_EnemyLvl1: {fileID: 9079925210860216859, guid: 64eb5f2378a0c9047a802bcfa67a15b7,
     type: 3}
   go_EnemyLvl2: {fileID: 1630073479752065733, guid: 8703c77fddb2b2f4a81c9d7e26da99a1,
@@ -355,6 +356,7 @@ MonoBehaviour:
     type: 3}
   go_EnemyLvl5: {fileID: 6661360492872475564, guid: b18521d1827b1364e8a3a01e9a69f7ff,
     type: 3}
+  playerScript: {fileID: 0}
 --- !u!1 &1394477543
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +604,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1392709585}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1978174024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1978174025}
+  m_Layer: 0
+  m_Name: PlayerSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1978174025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978174024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: -3.2, z: 10}
+  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1392709585}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2122444146
 GameObject:
