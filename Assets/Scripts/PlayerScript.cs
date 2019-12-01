@@ -23,6 +23,9 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Update Text
+        GetComponentInChildren<Text>().text = s_Name + " Lvl." + i_Level;
+
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             gameObject.transform.position = GameObject.Find("PlayerSpawn").transform.position;

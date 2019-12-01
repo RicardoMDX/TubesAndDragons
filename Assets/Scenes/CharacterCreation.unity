@@ -1274,6 +1274,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7577353065717934304, guid: 300ef91ee69acd842a01b4f115aed324,
+        type: 3}
+      propertyPath: i_Level
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 300ef91ee69acd842a01b4f115aed324, type: 3}
 --- !u!1 &1033882764
@@ -2178,7 +2183,6 @@ GameObject:
   - component: {fileID: 1497928491}
   - component: {fileID: 1497928490}
   - component: {fileID: 1497928489}
-  - component: {fileID: 1497928488}
   - component: {fileID: 1497928492}
   m_Layer: 0
   m_Name: Main Camera
@@ -2187,35 +2191,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1497928488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497928487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2f7677f16b5d44b816a117f10b176e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txt_Header: {fileID: 0}
-  go_Spawn1: {fileID: 2025488391}
-  go_Spawn2: {fileID: 2008958667}
-  go_Spawn3: {fileID: 151321295}
-  go_Spawn4: {fileID: 1101402436}
-  go_Spawn5: {fileID: 1900660244}
-  go_EnemyLvl1: {fileID: 9079925210860216859, guid: 64eb5f2378a0c9047a802bcfa67a15b7,
-    type: 3}
-  go_EnemyLvl2: {fileID: 1630073479752065733, guid: 8703c77fddb2b2f4a81c9d7e26da99a1,
-    type: 3}
-  go_EnemyLvl3: {fileID: 6019121833898153523, guid: b920ac833e1850743b3150c1dd45b93f,
-    type: 3}
-  go_EnemyLvl4: {fileID: 8873594750041601844, guid: 803fa48babf9a3e42a97f8d8474697ec,
-    type: 3}
-  go_EnemyLvl5: {fileID: 6661360492872475564, guid: b18521d1827b1364e8a3a01e9a69f7ff,
-    type: 3}
-  playerScript: {fileID: 0}
 --- !u!81 &1497928489
 AudioListener:
   m_ObjectHideFlags: 0

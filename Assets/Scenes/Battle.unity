@@ -348,7 +348,7 @@ MonoBehaviour:
   go_Spawn5: {fileID: 579746411}
   go_EnemyLvl1: {fileID: 9079925210860216859, guid: 64eb5f2378a0c9047a802bcfa67a15b7,
     type: 3}
-  go_EnemyLvl2: {fileID: 1630073479752065733, guid: 8703c77fddb2b2f4a81c9d7e26da99a1,
+  go_EnemyLvl2: {fileID: 7916620959793420633, guid: b5c5a00b64f42494680ee61b9133a82b,
     type: 3}
   go_EnemyLvl3: {fileID: 6019121833898153523, guid: b920ac833e1850743b3150c1dd45b93f,
     type: 3}
@@ -356,6 +356,21 @@ MonoBehaviour:
     type: 3}
   go_EnemyLvl5: {fileID: 6661360492872475564, guid: b18521d1827b1364e8a3a01e9a69f7ff,
     type: 3}
+  go_EnemyLvl6: {fileID: 0}
+  go_EnemyLvl7: {fileID: 0}
+  go_EnemyLvl8: {fileID: 0}
+  go_EnemyLvl9: {fileID: 0}
+  go_EnemyLvl10: {fileID: 0}
+  go_EnemyLvl11: {fileID: 0}
+  go_EnemyLvl12: {fileID: 0}
+  go_EnemyLvl13: {fileID: 0}
+  go_EnemyLvl14: {fileID: 0}
+  go_EnemyLvl15: {fileID: 0}
+  go_EnemyLvl16: {fileID: 0}
+  go_EnemyLvl17: {fileID: 0}
+  go_EnemyLvl18: {fileID: 0}
+  go_EnemyLvl19: {fileID: 0}
+  go_EnemyLvl20: {fileID: 0}
   playerScript: {fileID: 0}
 --- !u!1 &1394477543
 GameObject:

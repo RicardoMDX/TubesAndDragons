@@ -8,22 +8,27 @@ public class BattleManager : MonoBehaviour
 
     public Text txt_Header;
     public GameObject go_Spawn1, go_Spawn2, go_Spawn3, go_Spawn4, go_Spawn5;
-    public GameObject go_EnemyLvl1, go_EnemyLvl2, go_EnemyLvl3, go_EnemyLvl4, go_EnemyLvl5;
+    public GameObject go_EnemyLvl1, go_EnemyLvl2, go_EnemyLvl3, go_EnemyLvl4, go_EnemyLvl5, 
+        go_EnemyLvl6, go_EnemyLvl7, go_EnemyLvl8, go_EnemyLvl9, go_EnemyLvl10, go_EnemyLvl11, 
+        go_EnemyLvl12, go_EnemyLvl13, go_EnemyLvl14, go_EnemyLvl15, go_EnemyLvl16, go_EnemyLvl17, 
+        go_EnemyLvl18, go_EnemyLvl19, go_EnemyLvl20;
     public PlayerScript playerScript;
 
-    private int i_PlayerLevel, i_EnemyToSpawn, i_EnemiesLevels=0, i=0;
-    private GameObject[] i_Enemies;
+    private int i_PlayerLevel=0, i_EnemyToSpawn, i_EnemiesLevels=0, i=0;
+    private GameObject[] i_Enemies = new GameObject[5];
 
     // Start is called before the first frame update
     void Start()
     { 
         playerScript=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         i_PlayerLevel = playerScript.i_Level;
-        Debug.Log(i_PlayerLevel);
+        Debug.Log("Player Level: "+i_PlayerLevel);
         while (i_EnemiesLevels<i_PlayerLevel || i_Enemies.Length<5)
         {
+            Debug.Log("Level difference= " + (i_PlayerLevel - i_EnemiesLevels));
+            //Decide Enemy Level
             switch (i_PlayerLevel-i_EnemiesLevels)
-            {
+            {            
                 case 1:
                 case 2:
                     i_EnemyToSpawn=Random.Range(1, 2);
@@ -65,12 +70,78 @@ public class BattleManager : MonoBehaviour
                     i_EnemyToSpawn = Random.Range(6, 20);
                     break;
             }
+            //Add Enemy To Array
+            switch (i_EnemyToSpawn)
+            {
+                case 1:
+                    i_Enemies[i] = go_EnemyLvl1;
+                    break;
+                case 2:
+                    i_Enemies[i] = go_EnemyLvl2;
+                    break;
+                case 3:
+                    i_Enemies[i] = go_EnemyLvl3;
+                    break;
+                case 4:
+                    i_Enemies[i] = go_EnemyLvl4;
+                    break;
+                case 5:
+                    i_Enemies[i] = go_EnemyLvl5;
+                    break;
+                case 6:
+                    i_Enemies[i] = go_EnemyLvl6;
+                    break;
+                case 7:
+                    i_Enemies[i] = go_EnemyLvl7;
+                    break;
+                case 8:
+                    i_Enemies[i] = go_EnemyLvl8;
+                    break;
+                case 9:
+                    i_Enemies[i] = go_EnemyLvl9;
+                    break;
+                case 10:
+                    i_Enemies[i] = go_EnemyLvl10;
+                    break;
+                case 11:
+                    i_Enemies[i] = go_EnemyLvl11;
+                    break;
+                case 12:
+                    i_Enemies[i] = go_EnemyLvl12;
+                    break;
+                case 13:
+                    i_Enemies[i] = go_EnemyLvl13;
+                    break;
+                case 14:
+                    i_Enemies[i] = go_EnemyLvl14;
+                    break;
+                case 15:
+                    i_Enemies[i] = go_EnemyLvl15;
+                    break;
+                case 16:
+                    i_Enemies[i] = go_EnemyLvl16;
+                    break;
+                case 17:
+                    i_Enemies[i] = go_EnemyLvl17;
+                    break;
+                case 18:
+                    i_Enemies[i] = go_EnemyLvl18;
+                    break;
+                case 19:
+                    i_Enemies[i] = go_EnemyLvl19;
+                    break;
+                case 20:
+                    i_Enemies[i] = go_EnemyLvl20;
+                    break;
+            }        
             i_EnemiesLevels += i_EnemyToSpawn;
-            i_Enemies[i] = "go_EnemyLvl"+i_EnemyToSpawn;
+            Debug.Log("Enemy LVL:" + i_EnemyToSpawn + " Enemies LVL total:" + i_EnemiesLevels);            
+            i++;
         }
-        foreach (int i in i_Enemies)
+        Debug.Log("Enemies to Spawn: " + i_Enemies.Length);
+        foreach (GameObject i in i_Enemies)
         {
-            Instantiate();
+            Instantiate(i);
         }
     }
 
