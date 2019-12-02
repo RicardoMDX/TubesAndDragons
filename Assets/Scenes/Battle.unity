@@ -341,36 +341,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txt_Header: {fileID: 1774549318}
-  go_Spawn1: {fileID: 1518254259}
-  go_Spawn2: {fileID: 1868014350}
-  go_Spawn3: {fileID: 1394477543}
-  go_Spawn4: {fileID: 699469684}
-  go_Spawn5: {fileID: 579746411}
+  go_Spawns:
+  - {fileID: 1518254259}
+  - {fileID: 1868014350}
+  - {fileID: 1394477543}
+  - {fileID: 699469684}
+  - {fileID: 579746411}
   go_EnemyLvl1: {fileID: 9079925210860216859, guid: 64eb5f2378a0c9047a802bcfa67a15b7,
     type: 3}
   go_EnemyLvl2: {fileID: 7916620959793420633, guid: b5c5a00b64f42494680ee61b9133a82b,
     type: 3}
-  go_EnemyLvl3: {fileID: 6019121833898153523, guid: b920ac833e1850743b3150c1dd45b93f,
+  go_EnemyLvl3: {fileID: 8180014770725360050, guid: 374aa7c662cee8748985f4fed2f7e8a4,
     type: 3}
-  go_EnemyLvl4: {fileID: 8873594750041601844, guid: 803fa48babf9a3e42a97f8d8474697ec,
+  go_EnemyLvl4: {fileID: 3723885587284787924, guid: 180c9e0cbcc5dfa47be2dd0508c303df,
     type: 3}
-  go_EnemyLvl5: {fileID: 6661360492872475564, guid: b18521d1827b1364e8a3a01e9a69f7ff,
+  go_EnemyLvl5: {fileID: 8680288475768028410, guid: b27b08df3b30f73489a7098277e0e4eb,
     type: 3}
-  go_EnemyLvl6: {fileID: 0}
-  go_EnemyLvl7: {fileID: 0}
-  go_EnemyLvl8: {fileID: 0}
-  go_EnemyLvl9: {fileID: 0}
-  go_EnemyLvl10: {fileID: 0}
-  go_EnemyLvl11: {fileID: 0}
-  go_EnemyLvl12: {fileID: 0}
-  go_EnemyLvl13: {fileID: 0}
-  go_EnemyLvl14: {fileID: 0}
-  go_EnemyLvl15: {fileID: 0}
-  go_EnemyLvl16: {fileID: 0}
-  go_EnemyLvl17: {fileID: 0}
-  go_EnemyLvl18: {fileID: 0}
-  go_EnemyLvl19: {fileID: 0}
-  go_EnemyLvl20: {fileID: 0}
+  go_EnemyLvl6: {fileID: 8078445596500422000, guid: ae5e83a47443e784ea82c8774434eaa2,
+    type: 3}
+  go_EnemyLvl7: {fileID: 1572597675337527364, guid: f1f583a8ed5e2a64397d12124bd6f309,
+    type: 3}
+  go_EnemyLvl8: {fileID: 8857235506191594540, guid: c824c26951f407144a3030c788aab691,
+    type: 3}
+  go_EnemyLvl9: {fileID: 105702822824890818, guid: 232a22d22c7a93642995b7c60291428a,
+    type: 3}
+  go_EnemyLvl10: {fileID: 9045144690130075839, guid: 32a13d87f62e390489e92442d7d58283,
+    type: 3}
+  go_EnemyLvl11: {fileID: 4002989668148446709, guid: 5555e833f0bc47c41b8604e8820610ef,
+    type: 3}
+  go_EnemyLvl12: {fileID: 3973598661278036095, guid: bbb650f46357edc4ab6cec4ef98c5f83,
+    type: 3}
+  go_EnemyLvl13: {fileID: 9084490320482758137, guid: 354c448f364097348bc80768a8b68071,
+    type: 3}
+  go_EnemyLvl14: {fileID: 3952171070895087956, guid: 38428eb9b498cca4592df69930e75685,
+    type: 3}
+  go_EnemyLvl15: {fileID: 5124525173795745856, guid: 9eec51fe98b144249963e291db5fd995,
+    type: 3}
+  go_EnemyLvl16: {fileID: 2895370324063376677, guid: 541dfd15d6ea71c4e82ef5421c297390,
+    type: 3}
+  go_EnemyLvl17: {fileID: 6387047179581449356, guid: 775a6d386b0398c43a8be13f1e859b8e,
+    type: 3}
+  go_EnemyLvl18: {fileID: 2492365087214708388, guid: b65b609f23339c7479f92244542264cb,
+    type: 3}
+  go_EnemyLvl19: {fileID: 8713325759785450727, guid: b008f9c9f4f85f74e87f260bb9df1db9,
+    type: 3}
+  go_EnemyLvl20: {fileID: 215331612106277171, guid: c8d40644f7adfbc43a36facedde0b5d8,
+    type: 3}
   playerScript: {fileID: 0}
 --- !u!1 &1394477543
 GameObject:

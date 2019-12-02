@@ -7,7 +7,7 @@ public class BattleManager : MonoBehaviour
 {
 
     public Text txt_Header;
-    public GameObject go_Spawn1, go_Spawn2, go_Spawn3, go_Spawn4, go_Spawn5;
+    public GameObject[] go_Spawns=new GameObject [5];
     public GameObject go_EnemyLvl1, go_EnemyLvl2, go_EnemyLvl3, go_EnemyLvl4, go_EnemyLvl5, 
         go_EnemyLvl6, go_EnemyLvl7, go_EnemyLvl8, go_EnemyLvl9, go_EnemyLvl10, go_EnemyLvl11, 
         go_EnemyLvl12, go_EnemyLvl13, go_EnemyLvl14, go_EnemyLvl15, go_EnemyLvl16, go_EnemyLvl17, 
@@ -23,7 +23,7 @@ public class BattleManager : MonoBehaviour
         playerScript=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         i_PlayerLevel = playerScript.i_Level;
         Debug.Log("Player Level: "+i_PlayerLevel);
-        while (i_EnemiesLevels<i_PlayerLevel || i_Enemies.Length<5)
+        while (i_EnemiesLevels<i_PlayerLevel || i<5)
         {
             Debug.Log("Level difference= " + (i_PlayerLevel - i_EnemiesLevels));
             //Decide Enemy Level
@@ -139,9 +139,11 @@ public class BattleManager : MonoBehaviour
             i++;
         }
         Debug.Log("Enemies to Spawn: " + i_Enemies.Length);
-        foreach (GameObject i in i_Enemies)
+        foreach (GameObject s in go_Spawns)
         {
-            Instantiate(i);
+            Instantiate(i_Enemies[i],s.transform);
+            Debug.Log("Spawning enemy " + i + " in spawn " + s);
+            i++;
         }
     }
 
