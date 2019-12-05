@@ -18,6 +18,12 @@ public class PlayerScript : MonoBehaviour
         sld_HealthSlider.value = i_HP;
         sld_ManaSlider.maxValue = i_MaxMana;
         sld_ManaSlider.value = i_Mana;
+        //Race and Class bonuses
+        switch(i_Race)
+        {
+            case 1:
+                break;
+        }
     }
 
     // Update is called once per frame

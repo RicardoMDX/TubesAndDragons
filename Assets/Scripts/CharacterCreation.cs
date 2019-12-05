@@ -84,7 +84,7 @@ public class CharacterCreation : MonoBehaviour
             case 3: raceButton3.isOn = true; break;
             case 4: raceButton4.isOn = true; break;
         }
-        random = Random.Range(1, 4);
+        random = Random.Range(1, 5);
         switch (random)
         {
             case 1: classButton1.isOn = true; break;

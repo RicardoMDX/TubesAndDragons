@@ -23,7 +23,7 @@ public class BattleManager : MonoBehaviour
         playerScript=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         i_PlayerLevel = playerScript.i_Level;
         Debug.Log("Player Level: "+i_PlayerLevel);
-        while (i_EnemiesLevels<i_PlayerLevel || i<5)
+        while ((i_PlayerLevel-i_EnemiesLevels)>=1 && i<5)
         {
             Debug.Log("Level difference= " + (i_PlayerLevel - i_EnemiesLevels));
             //Decide Enemy Level
@@ -138,7 +138,7 @@ public class BattleManager : MonoBehaviour
             Debug.Log("Enemy LVL:" + i_EnemyToSpawn + " Enemies LVL total:" + i_EnemiesLevels);            
             i++;
         }
-        Debug.Log("Enemies to Spawn: " + i_Enemies.Length);
+        i = 0;
         foreach (GameObject s in go_Spawns)
         {
             Instantiate(i_Enemies[i],s.transform);

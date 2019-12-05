@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 7422551378599071081}
   - component: {fileID: 2329539743621628726}
   m_Layer: 0
-  m_Name: EnemyPrefab (2)
+  m_Name: EnemyPrefab2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,8 +305,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5550470764539419824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.022808, y: 2.2736948, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8910476736542596090}
   - {fileID: 1648538168069866667}
