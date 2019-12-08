@@ -7,6 +7,7 @@ public class BattleManager : MonoBehaviour
 {
 
     public Text txt_Header;
+    public Button[] bu_Buttons = new Button[3];
     public GameObject[] go_Spawns=new GameObject [5];
     public GameObject go_EnemyLvl1, go_EnemyLvl2, go_EnemyLvl3, go_EnemyLvl4, go_EnemyLvl5, 
         go_EnemyLvl6, go_EnemyLvl7, go_EnemyLvl8, go_EnemyLvl9, go_EnemyLvl10, go_EnemyLvl11, 
@@ -15,14 +16,22 @@ public class BattleManager : MonoBehaviour
     public PlayerScript playerScript;
 
     private int i_PlayerLevel=0, i_EnemyToSpawn, i_EnemiesLevels=0, i=0;
+    private bool b_PlayerTurn=true;
     private GameObject[] i_Enemies = new GameObject[5];
 
     // Start is called before the first frame update
     void Start()
     { 
+        //Setup player
         playerScript=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         i_PlayerLevel = playerScript.i_Level;
+        playerScript.sld_HealthSlider.maxValue = playerScript.f_MaxHP;
+        playerScript.sld_HealthSlider.value = playerScript.f_HP;
+        playerScript.sld_ManaSlider.maxValue = playerScript.f_MaxMana;
+        playerScript.sld_ManaSlider.value = playerScript.f_Mana;
         Debug.Log("Player Level: "+i_PlayerLevel);
+
+        //Setup enemies
         while ((i_PlayerLevel-i_EnemiesLevels)>=1 && i<5)
         {
             Debug.Log("Level difference= " + (i_PlayerLevel - i_EnemiesLevels));
@@ -150,6 +159,25 @@ public class BattleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!b_PlayerTurn)
+        {
+            foreach(Button b in bu_Buttons)
+            {
+                b.interactable = false;
+            }
+            //Enemies turn
+        }
+        else
+        {
+            foreach (Button b in bu_Buttons)
+            {
+                b.interactable = true;
+            }
+        }
+    }
+
+    public void Attack()
+    {
+
     }
 }

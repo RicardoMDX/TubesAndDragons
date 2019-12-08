@@ -68,6 +68,55 @@ public class CharacterCreation : MonoBehaviour
             playerScript.s_Name = s_name;
             playerScript.i_Race = i_race;
             playerScript.i_Class = i_class;
+            //Race and Class bonuses
+            switch (i_race)
+            {
+                case 1:
+                    //Human, more XP
+                    playerScript.f_XPMultiplier = 1.5f;
+                    break;
+                case 2:
+                    //Dwarf, better prices
+                    playerScript.f_PriceMultiplier = 1.5f;
+                    break;
+                case 3:
+                    //Orc, more HP less MP
+                    playerScript.f_HPMultiplier+= 0.5f;
+                    playerScript.f_MPMultiplier-= 0.5f;
+                    break;
+                case 4:
+                    //Elf, more MP less HP
+                    playerScript.f_MPMultiplier+= 0.5f;
+                    playerScript.f_HPMultiplier-= 0.5f;
+                    break;                    
+            }
+            switch (i_class)
+            {
+                case 1:
+                    //Warrior, More HP and Damage
+                    playerScript.f_HPMultiplier += 0.1f;
+                    playerScript.i_Attack += 1;
+                    break;
+                case 2:
+                    //Ranger, More HP, Damage, Dodge and Mana
+                    playerScript.i_Attack += 1;
+                    playerScript.f_Dodge += 0.05f;
+                    break;
+                case 3:
+                    //Rogue, More Damage and Dodge
+                    playerScript.i_Attack += 1;
+                    playerScript.f_Dodge += 0.05f;
+                    break;
+                case 4:
+                    //Mage, More Damage and Mana
+                    playerScript.i_Attack += 1;
+                    playerScript.f_MPMultiplier += 0.1f;
+                    break;
+            }
+            playerScript.f_MaxHP = Mathf.Round(10*playerScript.f_HPMultiplier);
+            playerScript.f_HP = playerScript.f_MaxHP;
+            playerScript.f_MaxMana = Mathf.Round(6*playerScript.f_MPMultiplier);
+            playerScript.f_Mana = playerScript.f_MaxMana;
             Debug.Log("Name= "+s_name+" Race= " + i_race + " and Class= " + i_class);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
