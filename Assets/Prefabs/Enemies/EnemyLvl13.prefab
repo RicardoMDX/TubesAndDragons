@@ -77,6 +77,11 @@ PrefabInstance:
       propertyPath: i_Level
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 6518403148637876217, guid: bbb650f46357edc4ab6cec4ef98c5f83,
+        type: 3}
+      propertyPath: i_Attack
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5728189573832814253, guid: bbb650f46357edc4ab6cec4ef98c5f83,
         type: 3}
       propertyPath: m_AnchorMax.x
