@@ -12,6 +12,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyLvl5
       objectReference: {fileID: 0}
+    - target: {fileID: 3622424896783106316, guid: 431a672cc0bffd64f81e73dbbbcdb790,
+        type: 3}
+      propertyPath: i_Hitpoints
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3622424896783106316, guid: 431a672cc0bffd64f81e73dbbbcdb790,
+        type: 3}
+      propertyPath: i_Level
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3622424896783106316, guid: 431a672cc0bffd64f81e73dbbbcdb790,
+        type: 3}
+      propertyPath: i_Attack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8436213428960022355, guid: 431a672cc0bffd64f81e73dbbbcdb790,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,6 +82,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9194106653982599677, guid: 431a672cc0bffd64f81e73dbbbcdb790,
+        type: 3}
+      propertyPath: m_Text
+      value: Enemy Lvl. 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2832178613623079000, guid: 431a672cc0bffd64f81e73dbbbcdb790,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -76,26 +96,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3622424896783106316, guid: 431a672cc0bffd64f81e73dbbbcdb790,
-        type: 3}
-      propertyPath: i_Hitpoints
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3622424896783106316, guid: 431a672cc0bffd64f81e73dbbbcdb790,
-        type: 3}
-      propertyPath: i_Level
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3622424896783106316, guid: 431a672cc0bffd64f81e73dbbbcdb790,
-        type: 3}
-      propertyPath: i_Attack
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9194106653982599677, guid: 431a672cc0bffd64f81e73dbbbcdb790,
-        type: 3}
-      propertyPath: m_Text
-      value: Enemy Lvl. 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 431a672cc0bffd64f81e73dbbbcdb790, type: 3}

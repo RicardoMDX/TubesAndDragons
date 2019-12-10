@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 2112026299207856886, guid: ae5e83a47443e784ea82c8774434eaa2,
         type: 3}
       propertyPath: i_Attack
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 596717653829006242, guid: ae5e83a47443e784ea82c8774434eaa2,
         type: 3}

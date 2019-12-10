@@ -12,6 +12,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyLvl6
       objectReference: {fileID: 0}
+    - target: {fileID: 2329539743621628726, guid: 75a8d10e1db2a064fbcd454d9beff723,
+        type: 3}
+      propertyPath: i_Level
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329539743621628726, guid: 75a8d10e1db2a064fbcd454d9beff723,
+        type: 3}
+      propertyPath: i_Hitpoints
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329539743621628726, guid: 75a8d10e1db2a064fbcd454d9beff723,
+        type: 3}
+      propertyPath: i_Attack
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7422551378599071081, guid: 75a8d10e1db2a064fbcd454d9beff723,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,21 +81,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329539743621628726, guid: 75a8d10e1db2a064fbcd454d9beff723,
-        type: 3}
-      propertyPath: i_Level
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329539743621628726, guid: 75a8d10e1db2a064fbcd454d9beff723,
-        type: 3}
-      propertyPath: i_Hitpoints
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329539743621628726, guid: 75a8d10e1db2a064fbcd454d9beff723,
-        type: 3}
-      propertyPath: i_Attack
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3845136456851341922, guid: 75a8d10e1db2a064fbcd454d9beff723,
         type: 3}

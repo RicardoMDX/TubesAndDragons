@@ -152,7 +152,7 @@ public class BattleManager : MonoBehaviour
         i = 0;
         while(i<i_Enemies.Count)
         {
-            Instantiate(i_Enemies[i], go_Spawns[i].transform);
+            i_Enemies[i]=Instantiate(i_Enemies[i], go_Spawns[i].transform);
             Debug.Log("Spawning enemy " + i + " in spawn " + go_Spawns[i]);
             i++;
         }
@@ -164,18 +164,28 @@ public class BattleManager : MonoBehaviour
     {
         if(!b_PlayerTurn)
         {
-            foreach(Button b in bu_Buttons)
+            if (i_Enemies.Count == 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            foreach (Button b in bu_Buttons)
             {
                 b.interactable = false;
             }
             //Enemies turn
-            if (i_Enemies.Count > 0)
+            if (i_EnemyTurn < i_Enemies.Count)
             {
+                i_EnemyTurn++;
+                while (i_Enemies[i_EnemyTurn] == null || i_EnemyTurn<4)
+                {
+                    i_EnemyTurn++;
+                }
                 EnemyAttack();
             }
             else
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                i_EnemyTurn = 0;
+                EnemyAttack();
             }
         }
         else if(b_PlayerTurn)
@@ -186,10 +196,6 @@ public class BattleManager : MonoBehaviour
             }
             if (Input.GetMouseButtonDown(0))
             {
-                foreach (GameObject go in i_Enemies)
-                {
-                    Debug.Log(go);
-                }
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
@@ -220,22 +226,16 @@ public class BattleManager : MonoBehaviour
 
     public void EnemyAttack()
     {
-        Debug.Log("Enemy turn");
-        enemyscript = i_Enemies[i_EnemyTurn].GetComponent<EnemyScript>();
-        playerScript.f_HP -= enemyscript.i_Attack;
-        playerScript.sld_HealthSlider.value = playerScript.f_HP;
-        if (i_EnemyTurn <i_Enemies.Count)
+        if (i_Enemies[i_EnemyTurn] != null)
         {
-            i_EnemyTurn++;
-            while (i_Enemies[i_EnemyTurn]==null)
+            enemyscript = i_Enemies[i_EnemyTurn].GetComponent<EnemyScript>();
+            playerScript.f_HP -= enemyscript.i_Attack;
+            playerScript.sld_HealthSlider.value = playerScript.f_HP;
+            if(playerScript.f_HP<=0)
             {
-                i_EnemyTurn++;
+                SceneManager.LoadScene("Death");
             }
+            b_PlayerTurn = true;
         }
-        else
-        {
-            i_EnemyTurn = 0;
-        }
-        b_PlayerTurn = true;
     }
 }
