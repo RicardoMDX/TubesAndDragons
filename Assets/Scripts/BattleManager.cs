@@ -27,6 +27,7 @@ public class BattleManager : MonoBehaviour
         //Setup player
         playerScript=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         i_PlayerLevel = playerScript.i_Level;
+        playerScript.f_HP = playerScript.f_MaxHP;
         playerScript.sld_HealthSlider.maxValue = playerScript.f_MaxHP;
         playerScript.sld_HealthSlider.value = playerScript.f_HP;
         playerScript.sld_ManaSlider.maxValue = playerScript.f_MaxMana;
@@ -86,63 +87,83 @@ public class BattleManager : MonoBehaviour
             {
                 case 1:
                     i_Enemies.Add(go_EnemyLvl1);
+                    playerScript.i_BattleXP += 1;
                     break;
                 case 2:
                     i_Enemies.Add(go_EnemyLvl2);
+                    playerScript.i_BattleXP += 2;
                     break;
                 case 3:
                     i_Enemies.Add(go_EnemyLvl3);
+                    playerScript.i_BattleXP += 3;
                     break;
                 case 4:
                     i_Enemies.Add(go_EnemyLvl4);
+                    playerScript.i_BattleXP += 4;
                     break;
                 case 5:
                     i_Enemies.Add(go_EnemyLvl5);
+                    playerScript.i_BattleXP += 5;
                     break;
                 case 6:
                     i_Enemies.Add(go_EnemyLvl6);
+                    playerScript.i_BattleXP += 6;
                     break;
                 case 7:
                     i_Enemies.Add(go_EnemyLvl7);
+                    playerScript.i_BattleXP += 7;
                     break;
                 case 8:
                     i_Enemies.Add(go_EnemyLvl8);
+                    playerScript.i_BattleXP += 8;
                     break;
                 case 9:
                     i_Enemies.Add(go_EnemyLvl9);
+                    playerScript.i_BattleXP += 9;
                     break;
                 case 10:
                     i_Enemies.Add(go_EnemyLvl10);
+                    playerScript.i_BattleXP += 10;
                     break;
                 case 11:
                     i_Enemies.Add(go_EnemyLvl11);
+                    playerScript.i_BattleXP += 11;
                     break;
                 case 12:
                     i_Enemies.Add(go_EnemyLvl12);
+                    playerScript.i_BattleXP += 12;
                     break;
                 case 13:
                     i_Enemies.Add(go_EnemyLvl13);
+                    playerScript.i_BattleXP += 13;
                     break;
                 case 14:
                     i_Enemies.Add(go_EnemyLvl14);
+                    playerScript.i_BattleXP += 14;
                     break;
                 case 15:
                     i_Enemies.Add(go_EnemyLvl15);
+                    playerScript.i_BattleXP += 15;
                     break;
                 case 16:
                     i_Enemies.Add(go_EnemyLvl16);
+                    playerScript.i_BattleXP += 16;
                     break;
                 case 17:
                     i_Enemies.Add(go_EnemyLvl17);
+                    playerScript.i_BattleXP += 17;
                     break;
                 case 18:
                     i_Enemies.Add(go_EnemyLvl18);
+                    playerScript.i_BattleXP += 18;
                     break;
                 case 19:
                     i_Enemies.Add(go_EnemyLvl19);
+                    playerScript.i_BattleXP += 19;
                     break;
                 case 20:
                     i_Enemies.Add(go_EnemyLvl20);
+                    playerScript.i_BattleXP += 20;
                     break;
             }        
             i_EnemiesLevels += i_EnemyToSpawn;
@@ -166,7 +187,7 @@ public class BattleManager : MonoBehaviour
         {
             if (i_Enemies.Count == 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene("Victory");
             }
             foreach (Button b in bu_Buttons)
             {
