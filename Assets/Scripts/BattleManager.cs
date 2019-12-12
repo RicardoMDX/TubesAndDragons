@@ -9,6 +9,7 @@ public class BattleManager : MonoBehaviour
 
     public Text txt_Header;
     public Button[] bu_Buttons = new Button[3];
+    public GameObject go_EnemyTag;
     public GameObject[] go_Spawns=new GameObject [5];
     public GameObject go_EnemyLvl1, go_EnemyLvl2, go_EnemyLvl3, go_EnemyLvl4, go_EnemyLvl5, 
         go_EnemyLvl6, go_EnemyLvl7, go_EnemyLvl8, go_EnemyLvl9, go_EnemyLvl10, go_EnemyLvl11, 
@@ -17,7 +18,8 @@ public class BattleManager : MonoBehaviour
     public PlayerScript playerScript;
 
     private int i_PlayerLevel=0, i_EnemyToSpawn, i_EnemiesLevels=0, i=0, i_EnemyTurn=0;
-    private bool b_PlayerTurn=true;
+    private bool b_PlayerTurn=true, b_Defended=false;
+    private GameObject go_LastTag;
     public List<GameObject> i_Enemies;
     private EnemyScript enemyscript;
 
@@ -32,12 +34,13 @@ public class BattleManager : MonoBehaviour
         playerScript.sld_HealthSlider.value = playerScript.f_HP;
         playerScript.sld_ManaSlider.maxValue = playerScript.f_MaxMana;
         playerScript.sld_ManaSlider.value = playerScript.f_Mana;
-        Debug.Log("Player Level: "+i_PlayerLevel);
+        playerScript.sld_XPSlider.maxValue = playerScript.i_XPToNextLevel;
+        playerScript.sld_XPSlider.value = playerScript.i_ExperiencePoints;
+        playerScript.i_BattleXP = 0;
 
         //Setup enemies
         while ((i_PlayerLevel-i_EnemiesLevels)>=1 && i<5)
         {
-            Debug.Log("Level difference= " + (i_PlayerLevel - i_EnemiesLevels));
             //Decide Enemy Level
             switch (i_PlayerLevel-i_EnemiesLevels)
             {            
@@ -166,48 +169,32 @@ public class BattleManager : MonoBehaviour
                     playerScript.i_BattleXP += 20;
                     break;
             }        
-            i_EnemiesLevels += i_EnemyToSpawn;
-            Debug.Log("Enemy LVL:" + i_EnemyToSpawn + " Enemies LVL total:" + i_EnemiesLevels);            
+            i_EnemiesLevels += i_EnemyToSpawn; 
             i++;
         }
         i = 0;
         while(i<i_Enemies.Count)
         {
             i_Enemies[i]=Instantiate(i_Enemies[i], go_Spawns[i].transform);
-            Debug.Log("Spawning enemy " + i + " in spawn " + go_Spawns[i]);
             i++;
         }
-        Debug.Log(i_Enemies.Count + " Enemies");
+        go_LastTag = Instantiate(go_EnemyTag, i_Enemies[0].transform);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!b_PlayerTurn)
+        if (i_Enemies.Count == 0)
         {
-            if (i_Enemies.Count == 0)
-            {
-                SceneManager.LoadScene("Victory");
-            }
+            SceneManager.LoadScene("Victory");
+        }
+        if (!b_PlayerTurn && i_Enemies.Count>0)
+        {
             foreach (Button b in bu_Buttons)
             {
                 b.interactable = false;
             }
-            //Enemies turn
-            if (i_EnemyTurn < i_Enemies.Count)
-            {
-                i_EnemyTurn++;
-                while (i_Enemies[i_EnemyTurn] == null || i_EnemyTurn<4)
-                {
-                    i_EnemyTurn++;
-                }
-                EnemyAttack();
-            }
-            else
-            {
-                i_EnemyTurn = 0;
-                EnemyAttack();
-            }
+            EnemyAttack();
         }
         else if(b_PlayerTurn)
         {
@@ -222,27 +209,33 @@ public class BattleManager : MonoBehaviour
 
                 RaycastHit2D hitPoint = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
-                if (hitPoint)  
+                if (hitPoint)
                 {
-                    Attack(hitPoint.transform.gameObject);
+                    if (hitPoint.transform.gameObject.tag == "Enemy")
+                    {
+                        b_PlayerTurn = false;
+                        Attack(hitPoint.transform.gameObject);
+                    }
                 }
+            }
+            if (i_EnemyTurn >= i_Enemies.Count)
+            {
+                i_EnemyTurn = 0;
             }
         }
     }
 
     public void Attack(GameObject target)
     {
-        enemyscript=target.GetComponent<EnemyScript>();
+        enemyscript =target.GetComponent<EnemyScript>();
         enemyscript.i_Hitpoints -= playerScript.i_Attack;
         enemyscript.sld_HealthSlider.value = enemyscript.i_Hitpoints;
-        Debug.Log("Enemy HP " + enemyscript.i_Hitpoints);
         if(enemyscript.i_Hitpoints<=0)
         {
             i_Enemies.Remove(target);
             DestroyObject(target);
-            Debug.Log(target + " dead, " + i_Enemies.Count + " left");
         }
-        b_PlayerTurn = false;
+        Destroy(go_LastTag);
     }
 
     public void EnemyAttack()
@@ -250,13 +243,47 @@ public class BattleManager : MonoBehaviour
         if (i_Enemies[i_EnemyTurn] != null)
         {
             enemyscript = i_Enemies[i_EnemyTurn].GetComponent<EnemyScript>();
-            playerScript.f_HP -= enemyscript.i_Attack;
+            if (!b_Defended)
+            {
+                playerScript.f_HP -= enemyscript.i_Attack;
+            }
+            else if(b_Defended && (enemyscript.i_Attack - playerScript.i_Defend)>0)
+            {
+                playerScript.f_HP -= (enemyscript.i_Attack-playerScript.i_Defend);
+            }
             playerScript.sld_HealthSlider.value = playerScript.f_HP;
             if(playerScript.f_HP<=0)
             {
                 SceneManager.LoadScene("Death");
             }
+            b_Defended = false;
             b_PlayerTurn = true;
         }
+        //Place tag over next enemy
+        Debug.Log(i_EnemyTurn);
+        Debug.Log(i_EnemyTurn >= i_Enemies.Count);
+        if (i_EnemyTurn+1>= i_Enemies.Count)
+        {
+            go_LastTag = Instantiate(go_EnemyTag, i_Enemies[0].transform);
+        }
+        //Place tag over first enemy
+        else
+        {
+            go_LastTag = Instantiate(go_EnemyTag, i_Enemies[i_EnemyTurn+1].transform);
+        }
+        if (i_EnemyTurn+1>= i_Enemies.Count)
+        {
+            i_EnemyTurn = 0;
+        }
+        else
+        {
+            i_EnemyTurn++;
+        }
+    }
+
+    public void Defend()
+    {
+        b_Defended = true;
+        b_PlayerTurn = false;
     }
 }

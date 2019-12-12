@@ -117,7 +117,6 @@ public class CharacterCreation : MonoBehaviour
             playerScript.f_HP = playerScript.f_MaxHP;
             playerScript.f_MaxMana = Mathf.Round(6*playerScript.f_MPMultiplier);
             playerScript.f_Mana = playerScript.f_MaxMana;
-            Debug.Log("Name= "+s_name+" Race= " + i_race + " and Class= " + i_class);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

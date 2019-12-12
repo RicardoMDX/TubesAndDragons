@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 438495102794921198}
   m_Layer: 0
   m_Name: EnemyPrefab2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,6 +328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   i_Hitpoints: 5
   i_Level: 1
+  i_Attack: 0
+  sld_HealthSlider: {fileID: 0}
 --- !u!61 &438495102794921198
 BoxCollider2D:
   m_ObjectHideFlags: 0

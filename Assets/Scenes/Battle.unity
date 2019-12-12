@@ -712,7 +712,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1392709586}
-        m_MethodName: Attack
+        m_MethodName: Defend
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -868,6 +868,8 @@ MonoBehaviour:
   - {fileID: 795084798}
   - {fileID: 294995219}
   - {fileID: 358068024}
+  go_EnemyTag: {fileID: 8797453388330427589, guid: 28846f6ae374dcd498e1159355dfac54,
+    type: 3}
   go_Spawns:
   - {fileID: 1518254259}
   - {fileID: 1868014350}
@@ -915,6 +917,7 @@ MonoBehaviour:
   go_EnemyLvl20: {fileID: 215331612106277171, guid: c8d40644f7adfbc43a36facedde0b5d8,
     type: 3}
   playerScript: {fileID: 0}
+  i_Enemies: []
 --- !u!1 &1394477543
 GameObject:
   m_ObjectHideFlags: 0
